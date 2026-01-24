@@ -130,6 +130,17 @@
             .hero-text h1 { font-size: 2.5rem; }
             .hero-text p { margin-left: auto; margin-right: auto; }
         }
+
+        .icono-item {
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .icono-item:focus {
+            outline: 3px solid rgba(43,124,255,0.4);
+            outline-offset: 4px;
+        }
     </style>
 </head>
 <body>
@@ -161,8 +172,14 @@
         <div class="container">
             <h2>Soluciones para todo sector</h2>
             <div class="grid-iconos">
-                <div class="icono-item"><i class="fas fa-balance-scale"></i>Abogados</div>
-                <div class="icono-item"><i class="fas fa-calculator"></i>Contadores</div>
+                <a class="icono-item" href="abogados.html">
+                     <i class="fas fa-balance-scale"></i>
+                          Abogados
+                </a>
+                <a class="icono-item" href="contadores.html">
+                     <i class="fas fa-calculator"></i>
+                          Contadores
+                </a>
                 <div class="icono-item"><i class="fas fa-store"></i>Tiendas</div>
                 <div class="icono-item"><i class="fas fa-user-md"></i>Salud</div>
                 <div class="icono-item"><i class="fas fa-hammer"></i>Oficios</div>
