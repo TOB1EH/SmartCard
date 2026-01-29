@@ -3,278 +3,496 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SmartCard | Tu vitrina digital profesional</title>
+  <meta name="description" content="SmartCard Córdoba: Tarjetas físicas con QR que llevan a tu web profesional. Conectamos lo tradicional con lo digital para negocios y profesionales.">
+  <title>SmartCard Córdoba | Tu Tarjeta + Web Profesional</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
       --azul-oscuro: #0a192f;
       --azul-electrico: #2b7cff;
+      --azul-claro: #4dabf7;
       --blanco: #ffffff;
       --gris-claro: #f8f9fa;
+      --gris-medio: #e9ecef;
       --texto: #1a1a1a;
       --transicion: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Reset Total */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; color: var(--texto); line-height: 1.6; overflow-x: hidden; }
     html { scroll-behavior: smooth; }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 90%;
+    }
 
     /* Navegación */
     nav {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.97);
       backdrop-filter: blur(10px);
-      padding: 20px 0;
+      padding: 18px 0;
       position: sticky;
       top: 0;
       z-index: 1000;
       border-bottom: 1px solid #eee;
-      transition: box-shadow .25s ease;
+      transition: box-shadow .3s ease;
     }
-    nav.scrolled { box-shadow: 0 10px 30px rgba(10,25,47,.08); }
-
+    nav.scrolled { box-shadow: 0 8px 30px rgba(10,25,47,.1); }
+    
     .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 90%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 16px;
     }
-    .logo img { height: 40px; }
+    .logo { display: flex; align-items: center; gap: 12px; }
+    .logo img { height: 42px; }
+    .logo h2 { color: var(--azul-oscuro); font-size: 1.8rem; font-weight: 800; }
+    .logo span { color: var(--azul-electrico); }
 
     /* Botones */
     .btn {
-      padding: 14px 28px;
+      padding: 14px 32px;
       border-radius: 12px;
       text-decoration: none;
       font-weight: 600;
-      transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
       display: inline-block;
       border: none;
       cursor: pointer;
-    }
-    .btn:active { transform: translateY(0); }
-
-    .btn-azul { background: var(--azul-oscuro); color: white; }
-    .btn-azul:hover { background: var(--azul-electrico); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(43,124,255,0.3); }
-
-    /* Impact Banner */
-    .impact {
-      background: linear-gradient(135deg, var(--azul-oscuro), #050c18);
-      color: white;
-      padding: 70px 0;
       text-align: center;
+      font-size: 1rem;
+    }
+    .btn-azul { 
+      background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-electrico)); 
+      color: white;
+      border: 2px solid transparent;
+    }
+    .btn-azul:hover { 
+      transform: translateY(-3px); 
+      box-shadow: 0 12px 24px rgba(43,124,255,0.3);
+      background: linear-gradient(135deg, var(--azul-electrico), var(--azul-oscuro));
+    }
+    .btn-whatsapp {
+      background: #25d366;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+    }
+    .btn-whatsapp:hover {
+      background: #1da851;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(37,211,102,0.3);
+    }
+
+    /* Sección Principal - Hero */
+    .hero {
+      padding: 100px 0 80px;
+      background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
       position: relative;
       overflow: hidden;
     }
-    .impact::before {
+    .hero::before {
       content: "";
       position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(43,124,255,0.25), transparent 40%),
-        radial-gradient(circle at 80% 0%, rgba(255,255,255,0.08), transparent 40%);
-      pointer-events: none;
+      top: 0;
+      right: 0;
+      width: 60%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="%230a192f" opacity="0.03"/></svg>');
+      background-size: cover;
+      z-index: 0;
     }
-    .impact-content {
-      max-width: 900px;
-      margin: 0 auto;
-      width: 90%;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
       position: relative;
       z-index: 1;
     }
-    .impact h2 {
-      font-size: 3rem;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 18px;
-    }
-    .impact h2 span { color: var(--azul-electrico); }
-    .impact p {
-      font-size: 1.25rem;
-      opacity: 0.85;
-      margin-bottom: 30px;
-    }
-
-    /* Hero Section */
-    .hero {
-      padding: 80px 0;
-      background: radial-gradient(circle at top right, #f0f7ff, #ffffff);
-    }
-    .hero-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 90%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
     .hero-text h1 {
-      font-size: 3.5rem;
+      font-size: 3.2rem;
       line-height: 1.1;
       color: var(--azul-oscuro);
       margin-bottom: 25px;
       font-weight: 800;
     }
-    .hero-text h1 span { color: var(--azul-electrico); }
-    .hero-text p { font-size: 1.2rem; color: #555; margin-bottom: 35px; }
-
+    .hero-text h1 span { 
+      color: var(--azul-electrico);
+      display: block;
+    }
+    .hero-text p {
+      font-size: 1.25rem;
+      color: #555;
+      margin-bottom: 35px;
+      max-width: 90%;
+    }
+    .hero-image {
+      position: relative;
+    }
     .hero-image img {
       width: 100%;
-      border-radius: 30px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+      border-radius: 24px;
+      box-shadow: 0 30px 60px rgba(10,25,47,0.15);
+      transform: perspective(1000px) rotateY(-5deg);
+      transition: transform 0.5s ease;
     }
-
-    /* Sección Multiprofesional */
-    .negocios { padding: 100px 0; background: var(--azul-oscuro); color: white; text-align: center; }
-    .negocios h2 { font-size: 2.5rem; margin-bottom: 50px; }
-
-    .grid-iconos {
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 90%;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 30px;
+    .hero-image:hover img {
+      transform: perspective(1000px) rotateY(0deg);
     }
-
-    .icono-item {
+    .hero-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: white;
+      padding: 15px 25px;
+      border-radius: 16px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 10px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 20px;
-      transition: var(--transicion);
+      gap: 12px;
+      z-index: 2;
+    }
+    .hero-badge i {
+      color: var(--azul-electrico);
+      font-size: 2rem;
+    }
+    .hero-badge span {
+      font-weight: 700;
+      color: var(--azul-oscuro);
+    }
+
+    /* Cómo Funciona */
+    .proceso {
+      padding: 100px 0;
+      background: var(--gris-claro);
       text-align: center;
-      padding: 32px 20px;
+    }
+    .proceso h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--azul-oscuro);
+    }
+    .proceso-sub {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 60px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .pasos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+    .paso-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: var(--transicion);
+    }
+    .paso-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    .paso-numero {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background: var(--azul-electrico);
+      color: white;
+      border-radius: 50%;
+      line-height: 50px;
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    .paso-card h3 {
+      margin-bottom: 15px;
+      color: var(--azul-oscuro);
+    }
+
+    /* Portafolio de Trabajos */
+    .portafolio {
+      padding: 100px 0;
+      background: white;
+    }
+    .portafolio-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .portafolio-header h2 {
+      font-size: 2.5rem;
+      color: var(--azul-oscuro);
+      margin-bottom: 15px;
+    }
+    .portafolio-header p {
+      color: #666;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .categorias {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+    .categoria-btn {
+      padding: 10px 24px;
+      background: var(--gris-claro);
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      color: #555;
       cursor: pointer;
-      text-decoration: none;
-      color: inherit;
+      transition: var(--transicion);
+    }
+    .categoria-btn:hover,
+    .categoria-btn.active {
+      background: var(--azul-electrico);
+      color: white;
+    }
+    
+    .trabajos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 35px;
+    }
+    .trabajo-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(10,25,47,0.08);
+      transition: var(--transicion);
+      border: 1px solid var(--gris-medio);
+    }
+    .trabajo-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(10,25,47,0.15);
+    }
+    .trabajo-imagen {
+      height: 220px;
+      background: #f0f7ff;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 0 0 rgba(0,0,0,0);
     }
-    .icono-item::after{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background: radial-gradient(circle at 20% 10%, rgba(255,255,255,.18), transparent 40%);
-      opacity: 0;
-      transition: opacity .35s ease;
-      pointer-events:none;
+    .trabajo-imagen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
     }
-    .icono-item:hover {
+    .trabajo-card:hover .trabajo-imagen img {
+      transform: scale(1.05);
+    }
+    .trabajo-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
       background: var(--azul-electrico);
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 18px 40px rgba(0,0,0,.18);
-    }
-    .icono-item:hover::after { opacity: 1; }
-
-    .icono-item i { font-size: 2.5rem; margin-bottom: 8px; display: block; }
-
-    .icono-item .titulo {
-      font-size: 1.2rem;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 50px;
+      font-size: 0.8rem;
       font-weight: 600;
     }
-    .icono-item .ver {
-      margin-top: 6px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.15);
-      font-size: 0.8rem;
-      transition: background .25s ease, transform .25s ease;
+    .trabajo-contenido {
+      padding: 25px;
     }
-    .icono-item:hover .ver {
-      background: rgba(255,255,255,0.28);
-      transform: translateY(-1px);
+    .trabajo-contenido h3 {
+      margin-bottom: 10px;
+      color: var(--azul-oscuro);
     }
-    .icono-item:focus {
-      outline: 3px solid rgba(43,124,255,0.4);
-      outline-offset: 4px;
+    .trabajo-contenido p {
+      color: #666;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+    .trabajo-enlace {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--azul-electrico);
+      font-weight: 600;
+      text-decoration: none;
+      transition: gap 0.3s ease;
+    }
+    .trabajo-enlace:hover {
+      gap: 12px;
     }
 
     /* Beneficios */
-    .beneficios { padding: 100px 0; text-align: center; }
+    .beneficios {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--azul-oscuro) 0%, #050c18 100%);
+      color: white;
+      text-align: center;
+    }
+    .beneficios h2 {
+      font-size: 2.5rem;
+      margin-bottom: 60px;
+    }
     .beneficios-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 90%;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 40px;
-      margin-top: 50px;
     }
     .b-card {
-      padding: 40px;
-      border-radius: 24px;
-      background: var(--gris-claro);
+      padding: 40px 30px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.08);
       text-align: left;
-      transition: transform .25s ease, box-shadow .25s ease;
+      transition: var(--transicion);
+      border: 1px solid rgba(255,255,255,0.1);
     }
-    .b-card:hover{
+    .b-card:hover {
+      background: rgba(255,255,255,0.12);
       transform: translateY(-8px);
-      box-shadow: 0 18px 40px rgba(10,25,47,.10);
+      border-color: var(--azul-claro);
     }
-    .b-card i { color: var(--azul-electrico); font-size: 2rem; margin-bottom: 20px; }
-    .b-card h3 { margin-bottom: 15px; font-size: 1.4rem; }
+    .b-card i {
+      color: var(--azul-claro);
+      font-size: 2.5rem;
+      margin-bottom: 25px;
+      display: block;
+    }
+    .b-card h3 {
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+    .b-card p {
+      opacity: 0.9;
+      line-height: 1.7;
+    }
+
+    /* CTA Final */
+    .cta-final {
+      padding: 100px 0;
+      text-align: center;
+      background: linear-gradient(135deg, #f0f7ff 0%, #e3f2fd 100%);
+    }
+    .cta-final h2 {
+      font-size: 2.8rem;
+      color: var(--azul-oscuro);
+      margin-bottom: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-final p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 40px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-acciones {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
     /* Footer */
-    footer { background: #050c18; color: white; padding: 80px 0; text-align: center; }
-    .footer-logo img { height: 45px; margin-bottom: 30px; }
+    footer {
+      background: #050c18;
+      color: white;
+      padding: 80px 0 40px;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 50px;
+      margin-bottom: 60px;
+    }
+    .footer-col h3 {
+      font-size: 1.3rem;
+      margin-bottom: 25px;
+      color: var(--azul-claro);
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col ul li {
+      margin-bottom: 12px;
+    }
+    .footer-col ul li a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-col ul li a:hover {
+      color: var(--azul-claro);
+    }
+    .footer-logo {
+      margin-bottom: 20px;
+    }
+    .footer-logo h2 {
+      color: white;
+      font-size: 2rem;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+    .footer-loc {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 15px;
+      color: #ccc;
+    }
 
     /* Responsive */
-    @media (max-width: 968px) {
+    @media (max-width: 992px) {
       .hero-grid { grid-template-columns: 1fr; text-align: center; }
-      .hero-text h1 { font-size: 2.5rem; }
-      .hero-text p { margin-left: auto; margin-right: auto; }
+      .hero-text h1 { font-size: 2.8rem; }
+      .hero-text p { max-width: 100%; }
+      .hero-image { order: -1; }
+      .trabajos-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
     }
     @media (max-width: 768px) {
-      .impact h2 { font-size: 2.2rem; }
-      .impact p { font-size: 1.1rem; }
+      .hero-text h1 { font-size: 2.2rem; }
+      .proceso h2, .portafolio-header h2, .beneficios h2 { font-size: 2rem; }
+      .cta-final h2 { font-size: 2.2rem; }
+      .pasos-grid, .beneficios-grid { grid-template-columns: 1fr; }
+      .footer-content { grid-template-columns: 1fr; }
+      .cta-acciones { flex-direction: column; align-items: center; }
     }
 
-    /* =========================
-       REVEAL / STAGGER ANIMATIONS
-       ========================= */
+    /* Animaciones */
     .reveal {
       opacity: 0;
-      transform: translateY(18px);
-      transition: opacity .75s ease, transform .75s ease;
-      will-change: opacity, transform;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
     .reveal.show {
       opacity: 1;
       transform: translateY(0);
     }
-    .reveal.zoom { transform: scale(.96); }
-
-    .stagger > * {
-      opacity: 0;
-      transform: translateY(14px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
-    .stagger.show > * {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .stagger.show > *:nth-child(1) { transition-delay: .05s; }
-    .stagger.show > *:nth-child(2) { transition-delay: .10s; }
-    .stagger.show > *:nth-child(3) { transition-delay: .15s; }
-    .stagger.show > *:nth-child(4) { transition-delay: .20s; }
-    .stagger.show > *:nth-child(5) { transition-delay: .25s; }
-    .stagger.show > *:nth-child(6) { transition-delay: .30s; }
-
+    
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .reveal, .stagger > * { transition: none !important; transform: none !important; opacity: 1 !important; }
-      .icono-item, .b-card, .btn { transition: none !important; }
+      .reveal { transition: none; }
     }
   </style>
 </head>
@@ -282,161 +500,352 @@
 <body>
 
   <nav>
-    <div class="nav-container">
+    <div class="container nav-container">
       <div class="logo">
         <!-- <img src="logo-azul.png" alt="SmartCard"> -->
-        <h2>SmartCard</h2>
+        <h2>Smart<span>Card</span></h2>
       </div>
-      <a href="#contacto" class="btn btn-azul">Solicitar Tarjeta</a>
+      <a href="#contacto" class="btn btn-azul">Solicitar Ahora</a>
     </div>
   </nav>
 
-  <section class="impact reveal zoom">
-    <div class="impact-content">
-      <h2>Marketing <span>+</span> Tecnología<span> = Crecimiento real</span></h2>
-
-      <p>
-        SmartCard transforma tu tarjeta física en una herramienta digital
-        que atrae clientes, genera confianza y hace crecer tu negocio.
-      </p>
-
-      <a href="#contacto" class="btn btn-azul" style="font-size:1.15rem;">
-        Quiero crecer con SmartCard
-      </a>
-    </div>
-  </section>
-
-  <section class="hero reveal">
-    <div class="hero-grid">
+  <section class="hero">
+    <div class="container hero-grid">
       <div class="hero-text">
-        <h1>Tu negocio físico, <span>conectado al mundo.</span></h1>
+        <h1>Tu Tarjeta de Presentación <span>con Web Digital Incluida</span></h1>
         <p>
-          Creamos tarjetas inteligentes con QR que redirigen a una "Vidriera Inteligente de alto impacto".
-          Ideal para abogados, tiendas, médicos y cualquier profesional que busque destacar.
+          Combinamos la tradición de la tarjeta de presentación con la tecnología moderna. 
+          Un código QR en tu tarjeta lleva directamente a tu web profesional, donde muestras 
+          todo lo que tu negocio ofrece. Perfecto para quienes buscan destacar en Córdoba.
         </p>
-        <a href="#contacto" class="btn btn-azul" style="font-size: 1.1rem;">Empezar mi transformación</a>
+        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+          <a href="#portafolio" class="btn btn-azul">Ver Ejemplos Realizados</a>
+          <a href="https://wa.me/5493543302038" class="btn btn-whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+          </a>
+        </div>
       </div>
       <div class="hero-image">
-        <img src="img/white_logo.png" alt="Escaneando SmartCard">
+        <img src="img/white_logo.png" alt="Tarjeta SmartCard con QR">
+        <div class="hero-badge">
+          <i class="fas fa-qrcode"></i>
+          <div>
+            <span>+100 clientes en Córdoba</span><br>
+            <small>ya usan SmartCard</small>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="negocios reveal">
+  <section class="proceso reveal">
     <div class="container">
-      <h2>Soluciones para todo sector</h2>
+      <h2>Así de Simple Funciona</h2>
+      <p class="proceso-sub">Un proceso fácil para quienes no son expertos en tecnología</p>
+      
+      <div class="pasos-grid">
+        <div class="paso-card">
+          <div class="paso-numero">1</div>
+          <h3>Diseñamos tu Web</h3>
+          <p>Creamos una página web profesional con tu información, fotos, servicios y contacto.</p>
+        </div>
+        
+        <div class="paso-card">
+          <div class="paso-numero">2</div>
+          <h3>Imprimimos tus Tarjetas</h3>
+          <p>Diseñamos e imprimimos tus tarjetas físicas con un código QR único que lleva a tu web.</p>
+        </div>
+        
+        <div class="paso-card">
+          <div class="paso-numero">3</div>
+          <h3>Entregas y Listo</h3>
+          <p>Recibes tus tarjetas y las entregas. Tus clientes escanean el QR y ven tu web profesional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <div class="grid-iconos stagger">
-        <a class="icono-item" href="abogados.html">
-          <i class="fas fa-balance-scale"></i>
-          <span class="titulo">Abogados</span>
-          <span class="ver">Ver Ejemplos</span>
-        </a>
-
-        <a class="icono-item" href="contadores.html">
-          <i class="fas fa-calculator"></i>
-          <span class="titulo">Contadores</span>
-          <span class="ver">Ver Ejemplos</span>
-        </a>
-
-        <a class="icono-item" href="Negocios.html">
-          <i class="fas fa-store"></i>
-          <span class="titulo">Negocios</span>
-          <span class="ver">Ver Ejemplos</span>
-        </a>
-
-        <a class="icono-item" href="Salud.html">
-          <i class="fas fa-user-md"></i>
-          <span class="titulo">Salud</span>
-          <span class="ver">Ver Ejemplos</span>
-        </a>
-
-        <a class="icono-item" href="Oficios.html">
-          <i class="fas fa-hammer"></i>
-          <span class="titulo">Oficios</span>
-          <span class="ver">Ver Ejemplos</span>
-        </a>
-
-        <a class="icono-item" href="Creativos.html">
-          <i class="fas fa-camera"></i>
-          <span class="titulo">Creativos</span>
-          <span class="ver">Ver Ejemplos</span>
-        </a>
+  <section class="portafolio reveal" id="portafolio">
+    <div class="container">
+      <div class="portafolio-header">
+        <h2>Algunos de Nuestros Trabajos</h2>
+        <p>Ejemplos reales de webs que hemos creado para profesionales y negocios en Córdoba</p>
+      </div>
+      
+      <div class="categorias">
+        <button class="categoria-btn active" data-categoria="todos">Todos</button>
+        <button class="categoria-btn" data-categoria="abogados">Abogados</button>
+        <button class="categoria-btn" data-categoria="contadores">Contadores</button>
+        <button class="categoria-btn" data-categoria="negocios">Negocios</button>
+        <button class="categoria-btn" data-categoria="salud">Salud</button>
+        <button class="categoria-btn" data-categoria="oficios">Oficios</button>
+      </div>
+      
+      <div class="trabajos-grid">
+        <!-- Ejemplo 1 -->
+        <div class="trabajo-card" data-categoria="abogados">
+          <div class="trabajo-imagen">
+            <img src="./img/nuestras_webs/AbogadoMartinFerreyra.png" alt="Estudio Jurídico">
+            <div class="trabajo-badge">Abogado</div>
+          </div>
+          <div class="trabajo-contenido">
+            <h3>Dr. Martín A. Ferreyra</h3>
+            <p>Abogado Especialista en Derecho Laboral y Civil. Web profesional con especialidades, casos exitosos y contacto directo.</p>
+            <a href="https://abogadomartinferreyra.netlify.app/" class="trabajo-enlace">
+              Ver ejemplo completo <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Ejemplo 2 -->
+        <div class="trabajo-card" data-categoria="contadores">
+          <div class="trabajo-imagen">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Contador">
+            <div class="trabajo-badge">Contador</div>
+          </div>
+          <div class="trabajo-contenido">
+            <h3>Contadora Laura Sosa</h3>
+            <p>Landing page para servicios contables con formulario de contacto, FAQs y enlaces a redes profesionales.</p>
+            <a href="contadores.html" class="trabajo-enlace">
+              Ver ejemplo completo <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Ejemplo 3 -->
+        <div class="trabajo-card" data-categoria="negocios">
+          <div class="trabajo-imagen">
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Tienda">
+            <div class="trabajo-badge">Negocio</div>
+          </div>
+          <div class="trabajo-contenido">
+            <h3>Boutique "El Jardín"</h3>
+            <p>Catálogo digital para tienda de ropa con galería de productos, horarios y ubicación en Google Maps.</p>
+            <a href="negocios.html" class="trabajo-enlace">
+              Ver ejemplo completo <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Ejemplo 4 -->
+        <div class="trabajo-card" data-categoria="salud">
+          <div class="trabajo-imagen">
+            <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Médico">
+            <div class="trabajo-badge">Salud</div>
+          </div>
+          <div class="trabajo-contenido">
+            <h3>Dra. Carolina Méndez</h3>
+            <p>Web para médico clínico con especialidades, turnos online y artículos de salud para pacientes.</p>
+            <a href="salud.html" class="trabajo-enlace">
+              Ver ejemplo completo <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Ejemplo 5 -->
+        <div class="trabajo-card" data-categoria="oficios">
+          <div class="trabajo-imagen">
+            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Electricista">
+            <div class="trabajo-badge">Oficio</div>
+          </div>
+          <div class="trabajo-contenido">
+            <h3>Electricista Profesional</h3>
+            <p>Portafolio de trabajos realizados, servicios ofrecidos y contacto directo para presupuestos.</p>
+            <a href="oficios.html" class="trabajo-enlace">
+              Ver ejemplo completo <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Ejemplo 6 -->
+        <div class="trabajo-card" data-categoria="negocios">
+          <div class="trabajo-imagen">
+            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Restaurante">
+            <div class="trabajo-badge">Restaurante</div>
+          </div>
+          <div class="trabajo-contenido">
+            <h3>Restó "La Esquina"</h3>
+            <p>Menú digital, reservas online y galería de platos. Perfecto para gastronomía local.</p>
+            <a href="negocios.html" class="trabajo-enlace">
+              Ver ejemplo completo <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="beneficios reveal">
     <div class="container">
-      <h2>¿Por qué elegir SmartCard?</h2>
-
-      <div class="beneficios-grid stagger">
+      <h2>¿Por Qué Elegir SmartCard?</h2>
+      
+      <div class="beneficios-grid">
         <div class="b-card">
           <i class="fas fa-bolt"></i>
-          <h3>Impacto Instantáneo</h3>
-          <p>En un solo escaneo, tu cliente tiene tus títulos, experiencia, fotos de trabajos y contacto directo.</p>
+          <h3>Impacto Inmediato</h3>
+          <p>Tus clientes ven tu web profesional al instante, con toda tu información, experiencia y trabajos realizados.</p>
         </div>
-
+        
         <div class="b-card">
-          <i class="fas fa-sync"></i>
+          <i class="fas fa-sync-alt"></i>
           <h3>Siempre Actualizado</h3>
-          <p>¿Cambiaste de local o de WhatsApp? Actualizamos tu web sin que tengas que cambiar la tarjeta física.</p>
+          <p>Cambias tu teléfono, dirección o servicios? Actualizamos tu web sin cambiar la tarjeta física.</p>
         </div>
-
+        
         <div class="b-card">
           <i class="fas fa-shield-alt"></i>
-          <h3>Prestigio y Marca</h3>
-          <p>Diferénciate de la competencia con tecnología que proyecta modernidad y confianza.</p>
+          <h3>Profesionalismo Garantizado</h3>
+          <p>Destacá frente a la competencia con una presencia digital moderna y confiable.</p>
+        </div>
+        
+        <div class="b-card">
+          <i class="fas fa-chart-line"></i>
+          <h3>Más Clientes, Más Ventas</h3>
+          <p>Convierte cada tarjeta entregada en una oportunidad de negocio real con seguimiento digital.</p>
+        </div>
+        
+        <div class="b-card">
+          <i class="fas fa-mobile-alt"></i>
+          <h3>100% Mobile Friendly</h3>
+          <p>Tu web se ve perfecto en celulares, tablets y computadoras. Donde sea que te busquen.</p>
+        </div>
+        
+        <div class="b-card">
+          <i class="fas fa-users"></i>
+          <h3>Para Todo Tipo de Negocios</h3>
+          <p>Abogados, médicos, contadores, tiendas, restaurantes, oficios... adaptamos a cada necesidad.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <footer id="contacto">
+  <section class="cta-final reveal" id="contacto">
     <div class="container">
-      <div class="footer-logo">
-        <!-- <img src="logo-blanco.png" alt="SmartCard"> -->
-        <h2 style="color: white;">SmartCard</h2>
+      <h2>¿Listo para Modernizar tu Presentación?</h2>
+      <p>Miles de profesionales en Córdoba ya están usando SmartCard para destacar. Recibí tu tarjeta + web profesional en menos de 7 días.</p>
+      
+      <div class="cta-acciones">
+        <a href="https://wa.me/5493543302038" class="btn btn-whatsapp" target="_blank">
+          <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+        </a>
       </div>
-      <p style="margin-bottom: 30px; opacity: 0.8;">
-        Transformando la primera impresión en una relación comercial duradera.
+      
+      <p style="margin-top: 30px; font-size: 1rem; color: #777;">
+        <i class="fas fa-info-circle"></i> Incluye: Diseño web + Dominio + Hosting + 100 tarjetas físicas con QR
       </p>
+    </div>
+  </section>
 
-      <a href="https://wa.me/5493543302038" class="btn" style="background: #25d366; color:white;">
-        <i class="fab fa-whatsapp"></i> Hablar con un asesor
-      </a>
-
-      <p style="margin-top: 60px; font-size: 0.8rem; opacity: 0.5;">
-        © 2025 SmartCard Tech. Todos los derechos reservados.
-      </p>
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <h2>SmartCard</h2>
+          </div>
+          <p style="color: #ccc; margin-bottom: 20px;">
+            Conectando negocios de Córdoba con el futuro digital.
+          </p>
+          <div class="footer-loc">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Córdoba, Argentina</span>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Servicios</h3>
+          <ul>
+            <li><p>Portafolio de Trabajos</p></li>
+            <li><p>Web para Abogados</p></li>
+            <li><p>Web para Contadores</p></li>
+            <li><p>Web para Negocios</p></li>
+            <li><p>Web para Salud</p></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Contacto</h3>
+          <ul>
+            <li><a href="https://wa.me/5493543302038" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+            <li><a href="mailto:smartcard.contacto@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2025 SmartCard Córdoba. Todos los derechos reservados.</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">Diseño y desarrollo para negocios cordobeses</p>
+      </div>
     </div>
   </footer>
 
   <script>
-    // Reveal on scroll + stagger
-    const revealEls = document.querySelectorAll('.reveal');
-    const staggerEls = document.querySelectorAll('.stagger');
-
-    const io = new IntersectionObserver((entries) => {
+    // Animaciones al hacer scroll
+    const revealElements = document.querySelectorAll('.reveal');
+    
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('show');
-          io.unobserve(entry.target);
+          observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
-
-    revealEls.forEach(el => io.observe(el));
-    staggerEls.forEach(el => io.observe(el));
-
-    // Nav shadow al scrollear
+    }, { threshold: 0.1 });
+    
+    revealElements.forEach(el => observer.observe(el));
+    
+    // Sombra en nav al hacer scroll
     const nav = document.querySelector('nav');
-    const onScroll = () => {
-      if (window.scrollY > 8) nav.classList.add('scrolled');
-      else nav.classList.remove('scrolled');
-    };
-    window.addEventListener('scroll', onScroll);
-    onScroll();
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+    
+    // Filtrado del portafolio
+    const categoriaBtns = document.querySelectorAll('.categoria-btn');
+    const trabajoCards = document.querySelectorAll('.trabajo-card');
+    
+    categoriaBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remover clase active de todos los botones
+        categoriaBtns.forEach(b => b.classList.remove('active'));
+        // Agregar clase active al botón clickeado
+        btn.classList.add('active');
+        
+        const categoria = btn.getAttribute('data-categoria');
+        
+        // Mostrar/ocultar tarjetas según categoría
+        trabajoCards.forEach(card => {
+          if (categoria === 'todos' || card.getAttribute('data-categoria') === categoria) {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 10);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 300);
+          }
+        });
+      });
+    });
+    
+    // Efecto hover en tarjetas de trabajos
+    trabajoCards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.zIndex = '10';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.zIndex = '1';
+      });
+    });
   </script>
 
 </body>
